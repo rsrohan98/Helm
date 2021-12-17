@@ -54,17 +54,18 @@ Once we have downloaded the Charts for mysql from stable repo, lets install it
     
 * helm create mychart
 
-  * helm install test-release .\mychart\
+* helm install test-release .\mychart\
 
-  * helm get manifest test-release
+* helm get manifest test-release
 
-  * helm install --debug --dry-run testValuesHelm .\mychart\
+* helm install --debug --dry-run testValuesHelm .\mychart\
 
-  * helm install --debug --dry-run --set costCode="XYZ123" testsetvalue .\mychart\   (This command will override keys value from Values.yaml)
+* helm install --debug --dry-run --set costCode="XYZ123" testsetvalue .\mychart\   (This command will override keys value from Values.yaml)
 
 ## Deployment of Helm Charts
 
 * helm package <complete path of chart>
+
 * helm repo index . (this generates index file for package)
 
 ## Helm dependencies
