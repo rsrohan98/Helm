@@ -2,7 +2,7 @@
 
 Hub: Hub is centrol public Repo where all charts are stored. like Docker Hub.
 
-    --> helm hub : hub.helm.sh
+     _helm hub : hub.helm.sh_
  
  * Search all charts from Public Repo (heb.helm.sh)
 
