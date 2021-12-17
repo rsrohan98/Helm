@@ -1,0 +1,40 @@
+{{- define "mychart.mylabels" }}
+  labels:
+    tag: frontend
+    tier: DB
+{{- end }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{.Release.Name}}-configmap
+  labels:
+{{ include "mychart.app" . | indent 4 }}
+data:
+{{ include "mychart.app" . | indent 2 }}
+  var1: "First Value"
+  costCode: {{ .Values.costCode }}
+  Zone: {{ .Values.infra.zone | upper | quote }}
+  Region: {{ quote .Values.infra.region}}
+  ProjectCode: {{ quote .Values.projectcode}}
+  Datefun: {{ now | date "2006-01-02" | quote}}
+  contact: {{ .Values.contact | default "1800-102-203" | quote}}
+  {{ if eq .Values.infra.region "us-e"}}TestIf: true {{ end }}
+  {{- if eq .Values.infra.zone "a,b,c"}}
+  Test2: true
+  {{- end }}
+  {{- $relname := .Release.Name }}
+  {{- with .Values.tags}}
+  Mac: {{.machine}}
+  RAC: {{.rack}}
+  DRIVE: {{ .drive }}
+  MEM: {{ .ram }}
+  Rel: {{ $relname | upper}}
+  {{- end}}
+  Lang used: |-
+   {{- range .Values.LanguageUsed}}
+   - {{ . | title | quote}}
+   {{- end }}
+  New lang Used: |-
+   {{- range $index,$topping :=  .Values.LanguageUsed}}
+    - {{$index}} : {{$topping}}
+   {{- end}}

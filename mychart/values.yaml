@@ -1,0 +1,15 @@
+costCode:  ABC123
+projectcode: xxxyy
+infra:
+  zone: a,b,c
+  region: us-e
+tags:
+  machine: frontend
+  rack: 4c
+  drive: ssd
+  ram: 8g
+LanguageUsed:
+  - C
+  - C++
+  - Java
+  - Python
